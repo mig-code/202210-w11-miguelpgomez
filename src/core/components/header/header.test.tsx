@@ -7,7 +7,7 @@ describe('Given Header component', () => {
     test('renders Header', () => {
         render(<Header />);
 
-        const linkElement = screen.getByText(/Header/i);
-        expect(linkElement).toBeInTheDocument();
+        const textElement = screen.getByText(/Header/i);
+        expect(textElement).toBeInTheDocument();
     });
 });
