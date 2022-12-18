@@ -1,4 +1,7 @@
-Formulario React & TypeScript
+#Challenge 11 Formulario React & TypeScript
+
+### Deploy  https://202210-w11-miguelpgomez.netlify.app/
+### Sonar
 
 Crea con React un formulario de tres pasos.
 
