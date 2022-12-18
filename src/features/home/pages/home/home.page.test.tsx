@@ -11,12 +11,8 @@ describe('Given Home Page component', () => {
         render(<HomePage />);
         
 
-        const linkElement = screen.getByText(/gentlemen pointing at you/i);
-        expect(linkElement).toBeInTheDocument();
+        const textElement = screen.getByText(/Home Page/i);
+        expect(textElement).toBeInTheDocument();
     });
-    test ('renders firt Gentleman', () => {
-        render(<HomePage />);
-        const linkElement = screen.getByText(/The Fary/i);
-        expect(linkElement).toBeInTheDocument();
-    });
+   
 });
