@@ -14,6 +14,7 @@ export function Form() {
         userName: '',
         password: '',
         confirmPassword: '',
+        accountType: '',
     };
     const [formData, setFormData] = useState(initialFormData);
 

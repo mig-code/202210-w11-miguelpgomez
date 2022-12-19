@@ -10,6 +10,7 @@ export function FormAccess({
         userName: '',
         password: '',
         confirmPassword: '',
+        accountType: '',
     };
     const [accessData, setAccessData] = useState(initialAccessData);
     const handleInput = (ev: SyntheticEvent) => {

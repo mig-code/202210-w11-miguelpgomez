@@ -11,5 +11,6 @@ export type FormDataType = {
         userName: string;
         password: string;
         confirmPassword: string;
+        accountType: string;
     
 };
