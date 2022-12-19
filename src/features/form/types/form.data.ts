@@ -1,15 +1,15 @@
-export type FormData = {
-    personalData: {
+export type FormDataType = {
+    
         name: string;
         lastName: string;
         birthDate: string;
         gender: string;
         email: string;
         newsLetter: boolean;
-    },
-    accessData: {
-        username: string;
+    
+   
+        userName: string;
         password: string;
-        passwordConfirmation: string;
-    },
+        confirmPassword: string;
+    
 };
