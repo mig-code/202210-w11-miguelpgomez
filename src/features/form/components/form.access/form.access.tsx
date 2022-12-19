@@ -69,6 +69,21 @@ export function FormAccess({
                         onInput={handleInput}
                     />
                 </div>
+                <div>
+                    <label htmlFor="accountType">Tipo de Cuenta</label>
+                    <select
+                        name="accountType"
+                        id="accountType"
+                        value={accessData.accountType}
+                        onInput={handleInput}
+                    >
+                        <option value="">Seleccione una opción</option>
+                        <option value="personal">Personal</option>
+                        <option value="pro">Pro</option>
+                        <option value="business">Business</option>
+
+                    </select>
+                </div>
 
                 <div>
                     <button type="submit">Submit</button>
