@@ -2,9 +2,10 @@ import { SyntheticEvent, useEffect, useState } from 'react';
 import { FormDataType } from '../../types/form.data';
 
 export function FormPersonalData({
-    handleAdd,
+    handleAdd, handleNextStep,
 }: {
     handleAdd: (data: Partial<FormDataType>) => void;
+    handleNextStep: () => void;
 }) {
     const initialPersonalData: Partial<FormDataType> = {
         name: '',
@@ -34,6 +35,7 @@ export function FormPersonalData({
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleAdd(personalData);
+        handleNextStep();
     };
 
     useEffect(() => {
@@ -131,7 +133,7 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Siguiente</button>
                 </div>
             </form>
         </>

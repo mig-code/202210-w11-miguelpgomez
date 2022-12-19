@@ -3,8 +3,12 @@ import { FormDataType } from '../../types/form.data';
 
 export function FormAccess({
     handleAdd,
+    handleNextStep,
+    handlePrevStep
 }: {
     handleAdd: (data: Partial<FormDataType>) => void;
+    handleNextStep: () => void;
+    handlePrevStep: () => void;
 }) {
     const initialAccessData: Partial<FormDataType> = {
         userName: '',
@@ -25,6 +29,11 @@ export function FormAccess({
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         handleAdd(accessData);
+        handleNextStep();
+    };
+
+    const handleBack = () => {
+        handlePrevStep();
     };
 
     useEffect(() => {
@@ -52,10 +61,8 @@ export function FormAccess({
                         type="password"
                         name="password"
                         id="password"
-                        
                         value={accessData.password}
                         onInput={handleInput}
-                        
                     />
                 </div>
                 <div>
@@ -64,7 +71,6 @@ export function FormAccess({
                         type="password"
                         name="confirmPassword"
                         id="confirmPassword"
-                     
                         value={accessData.confirmPassword}
                         onInput={handleInput}
                     />
@@ -81,12 +87,12 @@ export function FormAccess({
                         <option value="personal">Personal</option>
                         <option value="pro">Pro</option>
                         <option value="business">Business</option>
-
                     </select>
                 </div>
 
                 <div>
-                    <button type="submit">Submit</button>
+                    <button type="button" onClick={handleBack}> Atrás</button>
+                    <button type="submit">Siguiente</button>
                 </div>
             </form>
         </>
