@@ -1,7 +1,9 @@
+import { Form } from "../components/form.smart/form";
+
 export function FormPage() {
     return (
         <>
-            <h1>Form Page</h1>
+            <Form></Form>
         </>
     );
 }
