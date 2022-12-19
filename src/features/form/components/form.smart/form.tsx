@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FormDataType } from '../../types/form.data';
+import { FormAccess } from '../form.access/form.access';
 import { FormPersonalData } from '../form.personal/form.personal.data';
 
 export function Form() {
@@ -30,6 +31,7 @@ export function Form() {
     return (
         <>
             <FormPersonalData handleAdd={handleAddFormData}></FormPersonalData>
+            <FormAccess handleAdd={handleAddFormData}></FormAccess>
         </>
     );
 }
