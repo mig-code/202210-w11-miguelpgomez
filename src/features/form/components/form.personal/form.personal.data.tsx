@@ -6,7 +6,7 @@ export function FormPersonalData({
 }: {
     handleAdd: (data: Partial<FormDataType>) => void;
 }) {
-    const InitialPersonalData: Partial<FormDataType> = {
+    const initialPersonalData: Partial<FormDataType> = {
         name: '',
         lastName: '',
         birthDate: '',
@@ -14,7 +14,7 @@ export function FormPersonalData({
         email: '',
         newsLetter: false,
     };
-    const [personalData, setPersonalData] = useState(InitialPersonalData);
+    const [personalData, setPersonalData] = useState(initialPersonalData);
     const handleInput = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
 
