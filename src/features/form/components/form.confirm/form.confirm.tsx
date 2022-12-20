@@ -12,6 +12,9 @@ export function FormComfirm({
     function handleBack() {
         handlePrevStep();
     }
+    function handleConfirm() {
+        handleNextStep();
+    }
     return (
         <>
             <h2>Confirma tus datos</h2>
@@ -25,7 +28,7 @@ export function FormComfirm({
                 <p>Tipo de cuenta: {formData.accountType}</p>
             </div>
             <button onClick={handleBack}>Atrás </button>
-            <button>Enviar</button>
+            <button onClick={handleConfirm}>Acceder</button>
         </>
     );
 }

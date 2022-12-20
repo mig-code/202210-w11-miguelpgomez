@@ -42,7 +42,7 @@ export function FormAccess({
 
     return (
         <>
-            <h2>Login </h2>
+            <h2>Datos de acceso </h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="userName">Nombre de Usuario</label>
