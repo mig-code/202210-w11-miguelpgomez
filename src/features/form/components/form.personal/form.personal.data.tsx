@@ -54,13 +54,13 @@ export function FormPersonalData({
         setPersonalData(
             element.type === 'checkbox'
                 ? {
-                      ...personalData,
-                      [element.name]: element.checked,
-                  }
+                    ...personalData,
+                    [element.name]: element.checked,
+                }
                 : {
-                      ...personalData,
-                      [element.name]: element.value,
-                  }
+                    ...personalData,
+                    [element.name]: element.value,
+                }
         );
     };
 

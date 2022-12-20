@@ -111,7 +111,7 @@ export function FormAccessData({
                     <button type="button" onClick={handleBack}>
                         Atrás
                     </button>
-                   { areFieldsValid && <button type="submit">Siguiente</button>}
+                    {areFieldsValid && <button type="submit">Siguiente</button>}
                 </div>
             </form>
         </>
