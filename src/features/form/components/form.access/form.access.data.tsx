@@ -1,10 +1,10 @@
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { FormDataType } from '../../types/form.data';
 
-export function FormAccess({
+export function FormAccessData({
     handleAdd,
     handleNextStep,
-    handlePrevStep
+    handlePrevStep,
 }: {
     handleAdd: (data: Partial<FormDataType>) => void;
     handleNextStep: () => void;
@@ -91,7 +91,10 @@ export function FormAccess({
                 </div>
 
                 <div>
-                    <button type="button" onClick={handleBack}> Atrás</button>
+                    <button type="button" onClick={handleBack}>
+                        {' '}
+                        Atrás
+                    </button>
                     <button type="submit">Siguiente</button>
                 </div>
             </form>
