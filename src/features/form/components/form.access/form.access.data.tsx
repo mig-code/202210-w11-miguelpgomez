@@ -45,7 +45,7 @@ export function FormAccessData({
             <h2>Datos de acceso </h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="userName">Nombre de Usuario</label>
+                    {/* <label htmlFor="userName">Nombre de Usuario</label> */}
                     <input
                         type="text"
                         name="userName"
@@ -56,21 +56,23 @@ export function FormAccessData({
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    {/* <label htmlFor="password">Password</label> */}
                     <input
                         type="password"
                         name="password"
                         id="password"
+                        placeholder="Contraseña"
                         value={accessData.password}
                         onInput={handleInput}
                     />
                 </div>
                 <div>
-                    <label htmlFor="confirmPassword">Confirmar Password</label>
+                    {/* <label htmlFor="confirmPassword">Confirmar Password</label> */}
                     <input
                         type="password"
                         name="confirmPassword"
                         id="confirmPassword"
+                        placeholder="Confirmar contraseña"
                         value={accessData.confirmPassword}
                         onInput={handleInput}
                     />
@@ -90,9 +92,8 @@ export function FormAccessData({
                     </select>
                 </div>
 
-                <div>
+                <div className="buttons-container">
                     <button type="button" onClick={handleBack}>
-                        {' '}
                         Atrás
                     </button>
                     <button type="submit">Siguiente</button>
