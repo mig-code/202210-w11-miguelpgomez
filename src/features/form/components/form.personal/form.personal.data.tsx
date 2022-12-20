@@ -17,6 +17,37 @@ export function FormPersonalData({
         newsLetter: false,
     };
     const [personalData, setPersonalData] = useState(initialPersonalData);
+    const [areFieldsValid, setAreFieldsValid] = useState(false);
+    const [userAge, setUserAge] = useState(0);
+
+    const checkFieldsAreValid = () => {
+        if (
+            personalData.name &&
+            personalData.lastName &&
+            personalData.birthDate &&
+            personalData.gender &&
+            personalData.email
+        ) {
+            setAreFieldsValid(true);
+        } else {
+            setAreFieldsValid(false);
+        }
+    };
+    const maxDate = new Date().toISOString().split('T')[0];
+    const getAge = (birthDate: string) => {
+        const today = new Date();
+        const birthDateDate = new Date(birthDate);
+        const age = today.getFullYear() - birthDateDate.getFullYear();
+        const month = today.getMonth() - birthDateDate.getMonth();
+        if (
+            month < 0 ||
+            (month === 0 && today.getDate() < birthDateDate.getDate())
+        ) {
+            return age - 1;
+        }
+        return age;
+    };
+
     const handleInput = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
 
@@ -40,8 +71,11 @@ export function FormPersonalData({
     };
 
     useEffect(() => {
-        console.log(personalData);
-    }, [personalData]);
+        checkFieldsAreValid();
+    });
+    useEffect(() => {
+        if (personalData.birthDate) setUserAge(getAge(personalData.birthDate));
+    }, [personalData.birthDate]);
 
     return (
         <>
@@ -71,17 +105,18 @@ export function FormPersonalData({
                 </div>
                 <div>
                     <label htmlFor="birthDate">Fecha de nacimiento</label>
+                    <p> {userAge? `Edad: ${userAge} años`:""}</p>
                     <input
                         type="date"
                         name="birthDate"
                         id="birthDate"
+                        max={maxDate}
                         placeholder="Fecha de nacimiento"
                         value={personalData.birthDate}
                         onInput={handleInput}
                     />
                 </div>
                 <div>
-                    
                     <label htmlFor="male">Hombre</label>
                     <input
                         type="radio"
@@ -134,7 +169,7 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <button type="submit">Siguiente</button>
+                    {areFieldsValid && <button type="submit">Siguiente</button>}
                 </div>
             </form>
         </>

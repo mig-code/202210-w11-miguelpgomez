@@ -7,7 +7,7 @@ describe('Given Header component', () => {
     test('renders Header', () => {
         render(<Header />);
 
-        const textElement = screen.getByText(/Header/i);
+        const textElement = screen.getByText(/Registro/i);
         expect(textElement).toBeInTheDocument();
     });
 });

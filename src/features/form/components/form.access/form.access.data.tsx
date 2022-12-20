@@ -17,6 +17,21 @@ export function FormAccessData({
         accountType: '',
     };
     const [accessData, setAccessData] = useState(initialAccessData);
+    const [areFieldsValid, setAreFieldsValid] = useState(false);
+
+    const checkFieldsAreValid = () => {
+        if (
+            accessData.userName &&
+            accessData.password &&
+            accessData.confirmPassword &&
+            accessData.accountType
+        ) {
+            setAreFieldsValid(true);
+        } else {
+            setAreFieldsValid(false);
+        }
+    };
+
     const handleInput = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
 
@@ -37,8 +52,8 @@ export function FormAccessData({
     };
 
     useEffect(() => {
-        console.log(accessData);
-    }, [accessData]);
+        checkFieldsAreValid();
+    });
 
     return (
         <>
@@ -96,7 +111,7 @@ export function FormAccessData({
                     <button type="button" onClick={handleBack}>
                         Atrás
                     </button>
-                    <button type="submit">Siguiente</button>
+                    {areFieldsValid && <button type="submit">Siguiente</button>}
                 </div>
             </form>
         </>

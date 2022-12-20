@@ -10,7 +10,7 @@ describe('Given App component', () => {
                 <App />
             </BrowserRouter>
         );
-        const textElement = screen.getByText(/Personal Data Form/i);
+        const textElement = screen.getByText(/Datos personales/i);
         expect(textElement).toBeInTheDocument();
     });
 });
