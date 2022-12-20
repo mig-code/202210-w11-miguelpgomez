@@ -3,15 +3,19 @@ import { FormDataType } from '../../types/form.data';
 
 export function FormComfirm({
     formData,
-
     handlePrevStep,
+    saveUserData,
+
 }: {
     formData: FormDataType;
-
     handlePrevStep: () => void;
+    saveUserData: (userName: string, data: Array<FormDataType>) => void;
 }) {
     function handleBack() {
         handlePrevStep();
+    }
+    function handleConfirm() {
+        saveUserData(formData.userName, [formData]);
     }
 
     return (
@@ -28,7 +32,7 @@ export function FormComfirm({
             </div>
             <button onClick={handleBack}>Atrás </button>
             <Link to={'login'}>
-                <button>Acceder</button>
+                <button onClick={handleConfirm}>Acceder</button>
             </Link>
         </>
     );
