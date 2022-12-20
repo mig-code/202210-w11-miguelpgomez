@@ -45,10 +45,10 @@ export function FormPersonalData({
 
     return (
         <>
-            <h1>Personal Data Form </h1>
+            <h2>Datos personales </h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="name">Nombre</label>
+                    {/* <label htmlFor="name">Nombre</label> */}
                     <input
                         type="text"
                         name="name"
@@ -59,7 +59,7 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <label htmlFor="lastName">Apellido</label>
+                    {/* <label htmlFor="lastName">Apellido</label> */}
                     <input
                         type="text"
                         name="lastName"
@@ -81,7 +81,7 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <p>Género</p>
+                    
                     <label htmlFor="male">Hombre</label>
                     <input
                         type="radio"
@@ -111,12 +111,12 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <label htmlFor="email">Email</label>
+                    {/* <label htmlFor="email">Email</label> */}
                     <input
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="Email"
+                        placeholder="Dirección de email"
                         value={personalData.email}
                         onInput={handleInput}
                     />

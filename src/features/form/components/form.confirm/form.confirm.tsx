@@ -5,7 +5,6 @@ export function FormComfirm({
     formData,
     handlePrevStep,
     saveUserData,
-
 }: {
     formData: FormDataType;
     handlePrevStep: () => void;
@@ -30,10 +29,12 @@ export function FormComfirm({
                 <p>Usuario: {formData.userName}</p>
                 <p>Tipo de cuenta: {formData.accountType}</p>
             </div>
-            <button onClick={handleBack}>Atrás </button>
-            <Link to={'login'}>
-                <button onClick={handleConfirm}>Acceder</button>
-            </Link>
+            <div className='buttons-container'>
+                <button onClick={handleBack}>Atrás </button>
+                <Link to={'login'}>
+                    <button onClick={handleConfirm}>Acceder</button>
+                </Link>
+            </div>
         </>
     );
 }

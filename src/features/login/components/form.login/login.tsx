@@ -26,11 +26,11 @@ export function Login() {
     }, [loginData]);
 
     return (
-        <>
+        <div className="login-container">
             <h2>Login </h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="userName">Nombre de Usuario</label>
+                    {/* <label htmlFor="userName">Nombre de Usuario</label> */}
                     <input
                         type="text"
                         name="userName"
@@ -41,11 +41,12 @@ export function Login() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    {/* <label htmlFor="password">Password</label> */}
                     <input
                         type="password"
                         name="password"
                         id="password"
+                        placeholder="Contraseña"
                         value={loginData.password}
                         onInput={handleInput}
                     />
@@ -57,6 +58,6 @@ export function Login() {
                     </button>
                 </div>
             </form>
-        </>
+        </div>
     );
 }
