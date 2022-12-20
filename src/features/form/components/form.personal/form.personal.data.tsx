@@ -2,7 +2,8 @@ import { SyntheticEvent, useEffect, useState } from 'react';
 import { FormDataType } from '../../types/form.data';
 
 export function FormPersonalData({
-    handleAdd, handleNextStep,
+    handleAdd,
+    handleNextStep,
 }: {
     handleAdd: (data: Partial<FormDataType>) => void;
     handleNextStep: () => void;
