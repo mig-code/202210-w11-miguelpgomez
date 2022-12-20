@@ -1,11 +1,12 @@
 
-import { FormPage } from '../../../features/form/pages/form.page';
+
 import { Layout } from '../layout/layout';
+import { AppRoutes } from '../routes/app.routes';
 
 function App() {
     return (
         <Layout>
-            <FormPage></FormPage>
+            <AppRoutes></AppRoutes>
         </Layout>
     );
 }

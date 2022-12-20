@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { FormDataType } from '../../types/form.data';
 import { FormAccess } from '../form.access/form.access';
 import { FormComfirm } from '../form.confirm/form.confirm';
-import { Login } from '../form.login/form.login';
 import { FormPersonalData } from '../form.personal/form.personal.data';
 
 export function Form() {
@@ -47,10 +46,18 @@ export function Form() {
                 ></FormPersonalData>
             )}
             {formStep === 1 && (
-                <FormAccess handleAdd={handleAddFormData} handleNextStep={handleNextStep} handlePrevStep={handlePrevStep}></FormAccess>
+                <FormAccess
+                    handleAdd={handleAddFormData}
+                    handleNextStep={handleNextStep}
+                    handlePrevStep={handlePrevStep}
+                ></FormAccess>
             )}
-            {formStep === 2 && <FormComfirm formData={formData} handleNextStep={handleNextStep} handlePrevStep={handlePrevStep}></FormComfirm>}
-            {formStep === 3 && <Login></Login>}
+            {formStep === 2 && (
+                <FormComfirm
+                    formData={formData}
+                    handlePrevStep={handlePrevStep}
+                ></FormComfirm>
+            )}
         </>
     );
 }
