@@ -39,3 +39,11 @@ Paso 4: Login.
 Si los datos son incorrectos, se debe de mostrar un mensaje de error.
 
 Si son correctos, se le debe mostrar una pantalla con todos los datos introducidos en el formulario (sería como un cuarto paso). Contraer
+
+#### Next Features
+    Check password are equals
+    Not save confirm password
+    Remove console.log
+    Improve styles
+    Improve validation messages
+
