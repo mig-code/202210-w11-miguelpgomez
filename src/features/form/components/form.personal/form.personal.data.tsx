@@ -17,19 +17,35 @@ export function FormPersonalData({
         newsLetter: false,
     };
     const [personalData, setPersonalData] = useState(initialPersonalData);
+    const [areFieldsValid, setAreFieldsValid] = useState(false);
+
+    const checkFieldsAreValid = () => {
+        if (
+            personalData.name &&
+            personalData.lastName &&
+            personalData.birthDate &&
+            personalData.gender &&
+            personalData.email
+        ) {
+            setAreFieldsValid(true);
+        } else {
+            setAreFieldsValid(false);
+        }
+    };
+
     const handleInput = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
 
         setPersonalData(
             element.type === 'checkbox'
                 ? {
-                    ...personalData,
-                    [element.name]: element.checked,
-                }
+                      ...personalData,
+                      [element.name]: element.checked,
+                  }
                 : {
-                    ...personalData,
-                    [element.name]: element.value,
-                }
+                      ...personalData,
+                      [element.name]: element.value,
+                  }
         );
     };
 
@@ -40,8 +56,8 @@ export function FormPersonalData({
     };
 
     useEffect(() => {
-        console.log(personalData);
-    }, [personalData]);
+        checkFieldsAreValid();
+    });
 
     return (
         <>
@@ -81,7 +97,6 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    
                     <label htmlFor="male">Hombre</label>
                     <input
                         type="radio"
@@ -134,7 +149,7 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <button type="submit">Siguiente</button>
+                    {areFieldsValid && <button type="submit">Siguiente</button>}
                 </div>
             </form>
         </>
