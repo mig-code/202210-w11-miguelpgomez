@@ -1,10 +1,11 @@
-import { HomePage } from '../../../features/home/pages/home/home.page';
+
+import { FormPage } from '../../../features/form/pages/form.page';
 import { Layout } from '../layout/layout';
 
 function App() {
     return (
         <Layout>
-            <HomePage></HomePage>
+            <FormPage></FormPage>
         </Layout>
     );
 }

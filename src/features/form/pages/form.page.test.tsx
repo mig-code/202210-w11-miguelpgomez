@@ -1,18 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { HomePage } from './home.page';
 
-
+import { FormPage } from './form.page';
 
 describe('Given Home Page component', () => {
-    
-    
     test('renders Info', () => {
-        render(<HomePage />);
-        
+        render(<FormPage></FormPage>);
 
-        const textElement = screen.getByText(/Home Page/i);
+        const textElement = screen.getByText(/Form Page/i);
         expect(textElement).toBeInTheDocument();
     });
-   
 });
