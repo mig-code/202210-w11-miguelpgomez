@@ -1,10 +1,9 @@
 import { SyntheticEvent, useEffect, useState } from 'react';
-import { FormDataType } from '../../types/form.data';
+import { FormDataType } from '../../../form/types/form.data';
 export function Login() {
     const initialLoginData: Partial<FormDataType> = {
         userName: '',
         password: '',
-     
     };
     const [loginData, setLoginData] = useState(initialLoginData);
     const handleInput = (ev: SyntheticEvent) => {
@@ -18,11 +17,7 @@ export function Login() {
 
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
-
-     
     };
-
- 
 
     useEffect(() => {
         console.log(loginData);
@@ -55,8 +50,9 @@ export function Login() {
                 </div>
 
                 <div>
-                    
-                    <button onClick={handleSubmit} type="submit">Acceder</button>
+                    <button onClick={handleSubmit} type="submit">
+                        Acceder
+                    </button>
                 </div>
             </form>
         </>

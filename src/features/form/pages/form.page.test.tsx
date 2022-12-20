@@ -7,7 +7,7 @@ describe('Given Home Page component', () => {
     test('renders Info', () => {
         render(<FormPage></FormPage>);
 
-        const textElement = screen.getByText(/Form Page/i);
+        const textElement = screen.getByText(/Personal Data/i);
         expect(textElement).toBeInTheDocument();
     });
 });
