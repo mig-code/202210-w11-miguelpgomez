@@ -1,4 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from 'react';
+import { getStoreData } from '../../../../services/storage';
 import { FormDataType } from '../../../form/types/form.data';
 export function Login() {
     const initialLoginData: Partial<FormDataType> = {
@@ -17,6 +18,7 @@ export function Login() {
 
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
+        if (loginData.userName) console.log(getStoreData(loginData.userName));
     };
 
     useEffect(() => {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { setStore } from '../../../../services/storage';
 import { FormDataType } from '../../types/form.data';
-import { FormAccess } from '../form.access/form.access';
+import { FormAccessData } from '../form.access/form.access.data';
 import { FormComfirm } from '../form.confirm/form.confirm';
 import { FormPersonalData } from '../form.personal/form.personal.data';
 
@@ -33,6 +34,10 @@ export function Form() {
             ...data,
         });
     }
+    function saveUserData(userName: string, data: Array<FormDataType>) {
+        setStore(userName, data);
+    }
+
     useEffect(() => {
         console.log(formData);
     }, [formData]);
@@ -46,16 +51,17 @@ export function Form() {
                 ></FormPersonalData>
             )}
             {formStep === 1 && (
-                <FormAccess
+                <FormAccessData
                     handleAdd={handleAddFormData}
                     handleNextStep={handleNextStep}
                     handlePrevStep={handlePrevStep}
-                ></FormAccess>
+                ></FormAccessData>
             )}
             {formStep === 2 && (
                 <FormComfirm
                     formData={formData}
                     handlePrevStep={handlePrevStep}
+                    saveUserData={saveUserData}
                 ></FormComfirm>
             )}
         </>
