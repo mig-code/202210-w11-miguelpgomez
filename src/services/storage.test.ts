@@ -34,7 +34,7 @@ describe('Given getStore Data', () => {
 
 describe('Given setStore', () => {
     describe('When I call it', () => {
-        test('Then localStorage should save the data', () => {
+        test('Then localStorage should be use with the data', () => {
             Storage.prototype.setItem = jest.fn();
             const mockTasks = [fullFormDataMock];
             const username = fullFormDataMock.userName;

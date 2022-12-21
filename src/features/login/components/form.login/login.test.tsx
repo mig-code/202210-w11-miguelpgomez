@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Login } from './login';
 import userEvent from '@testing-library/user-event';
 import { loginDataMock } from '../../mocks/login.data.mocks';
+import { fullFormDataMock } from '../../../form/mocks/form.data.mocks';
 
 describe('Given Login Page component', () => {
     beforeEach(() => {
@@ -42,9 +43,7 @@ describe('Given Login Page component', () => {
                     userData.password as string
                 );
                 expect(passwordInputElement).toHaveValue(userData.password);
-                // jest.spyOn(Storage.prototype, 'setItem');
-                // Storage.prototype.setItem = jest.fn();
-                // userEvent.click(elementButton);
+               
             });
         });
     });

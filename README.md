@@ -46,4 +46,5 @@ Si son correctos, se le debe mostrar una pantalla con todos los datos introducid
     Remove console.log
     Improve styles
     Improve validation messages
+    Not showing error password when user doesn' exist
 
