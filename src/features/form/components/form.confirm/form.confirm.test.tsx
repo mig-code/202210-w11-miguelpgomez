@@ -3,34 +3,55 @@ import { render, screen } from '@testing-library/react';
 
 import { FormComfirm } from './form.confirm';
 import { BrowserRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import { fullFormDataMock } from '../../mocks/form.data.mocks';
 
 describe('Given Confirm Form component', () => {
-    test('renders title', () => {
-        const mockFormData = {
-            name: 'name',
-            lastName: 'lastName',
-            birthDate: 'birthDate',
-            email: 'email',
-            gender: 'gender',
-            newsLetter: false,
-            userName: 'userName',
-            password: 'password',
-            confirmPassword: 'confirmPassword',
-            accountType: 'accountType',
-        };
-        const handlePrevStep = jest.fn();
-        const saveUserData = jest.fn();
+    const handlePrevStep = jest.fn();
+    const saveUserData = jest.fn();
+
+    beforeEach(() => {
         render(
             <BrowserRouter>
                 <FormComfirm
-                    formData={mockFormData}
+                    formData={fullFormDataMock}
                     handlePrevStep={handlePrevStep}
                     saveUserData={saveUserData}
                 ></FormComfirm>
             </BrowserRouter>
         );
+    });
 
-        const textElement = screen.getByText(/Confirma tus datos/i);
-        expect(textElement).toBeInTheDocument();
+    describe('When it is call with a DOM implementation', () => {
+        test(`Then component should be render with its title`, () => {
+            const elementHeader = screen.getByRole('heading', {
+                name: 'Confirma tus datos',
+            }); // <h2>
+
+            expect(elementHeader).toBeInTheDocument();
+        });
+        test(`Then component should be render with data`, () => {
+            const elementName = screen.getByText(/Nombre: Juan/i);
+            expect(elementName).toBeInTheDocument();
+            const elementLastName = screen.getByText(/Apellido: Perez/i);
+            expect(elementLastName).toBeInTheDocument();
+            
+        });
+    });
+    describe('Check functionality of the buttons', () => {
+        let elementButton: Array<HTMLElement>;
+
+        test('Then button back should be in the document', () => {
+            elementButton = screen.getAllByRole('button');
+            expect(elementButton[0]).toBeInTheDocument();
+            userEvent.click(elementButton[0]);
+            expect(handlePrevStep).toHaveBeenCalled();
+        });
+        test('Then button access should be in the document', () => {
+            elementButton = screen.getAllByRole('button');
+            expect(elementButton[1]).toBeInTheDocument();
+            userEvent.click(elementButton[1]);
+            expect(saveUserData).toHaveBeenCalled();
+        });
     });
 });
