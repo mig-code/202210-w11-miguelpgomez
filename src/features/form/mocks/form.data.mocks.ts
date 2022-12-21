@@ -22,3 +22,10 @@ export const personalDataMock: Partial<FormDataType> = {
     newsLetter: false,
 };
 
+export const accessDataMock: Partial<FormDataType> = {
+    userName: 'juan',
+    password: '1234',
+    confirmPassword: '1234',
+    accountType: 'personal',
+};
+

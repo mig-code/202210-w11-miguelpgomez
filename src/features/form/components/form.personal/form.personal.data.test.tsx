@@ -42,7 +42,7 @@ describe('Given Personal Data Form component', () => {
                 inputCheckboxElement = screen.getByRole('checkbox'); // <input>
             });
 
-            test('Then form could be used for type content and when content is complete we can use buttons', () => {
+            test('Then form could be used for type content and when content is complete we can click next step button', () => {
                 // NAME  LASTNAME
 
                 userEvent.type(inputTextElements[0], userData.name as string);
