@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { getStoreData } from '../../../../services/storage';
 import { LoginDataType } from '../../types/login.data';
 export function Login() {
@@ -31,10 +31,6 @@ export function Login() {
             }
         }
     };
-
-    useEffect(() => {
-        console.log(loginData);
-    }, [loginData]);
 
     return (
         <div className="login-container">
