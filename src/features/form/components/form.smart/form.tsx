@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { setStore } from '../../../../services/storage';
 import { FormDataType } from '../../types/form.data';
 import { FormAccessData } from '../form.access/form.access.data';
@@ -38,12 +38,9 @@ export function Form() {
         setStore(userName, data);
     }
 
-    useEffect(() => {
-        console.log(formData);
-    }, [formData]);
-
     return (
         <>
+            <h2>Registro en la aplicación</h2>
             {formStep === 0 && (
                 <FormPersonalData
                     handleAdd={handleAddFormData}

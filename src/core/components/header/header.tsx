@@ -1,7 +1,7 @@
-export function Header(){
+export function Header() {
     return (
         <header className="main-header">
-            <h1 className="main-title">Registro en la aplicación</h1>
+            <h1 className="main-title">Completa los pasos y regístrate</h1>
         </header>
     );
 }
