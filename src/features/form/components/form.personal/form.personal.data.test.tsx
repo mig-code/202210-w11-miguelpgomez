@@ -29,21 +29,21 @@ describe('Given Personal Data Form component', () => {
             const userData = personalDataMock;
 
             let inputTextElements: Array<HTMLElement>;
-            let inputDateElement: HTMLElement;
+            let inputDateElement: HTMLElement | null;
             let inputRadioElements: Array<HTMLElement>;
             let inputCheckboxElement: HTMLElement;
             let elementButton: HTMLElement;
 
             beforeEach(() => {
                 inputTextElements = screen.getAllByRole('textbox'); // <input>
-                // inputDateElement = screen.getByRole('date'); // <input>
+                inputDateElement =
+                    screen.queryByLabelText(/Fecha de nacimiento/i); // <input>
                 inputRadioElements = screen.getAllByRole('radio'); // <input>
                 inputCheckboxElement = screen.getByRole('checkbox'); // <input>
             });
 
-            test('Then form could be used for type content', () => {
-
-                // NAME  LASTNAME  EMAIL
+            test('Then form could be used for type content and when content is complete we can use buttons', () => {
+                // NAME  LASTNAME
 
                 userEvent.type(inputTextElements[0], userData.name as string);
                 userEvent.type(
@@ -53,20 +53,25 @@ describe('Given Personal Data Form component', () => {
                 expect(inputTextElements[0]).toHaveValue(userData.name);
                 expect(inputTextElements[1]).toHaveValue(userData.lastName);
 
+                //DATE
+                if (inputDateElement === null)
+                    throw new Error('Date element is null');
+                userEvent.type(inputDateElement, userData.birthDate as string);
+                expect(inputDateElement).toHaveValue(userData.birthDate);
+                const elementYears = screen.getByText(/Edad/i);
+                expect(elementYears).toBeInTheDocument();
+
+                //MAIL
                 userEvent.type(inputTextElements[2], userData.email as string);
                 expect(inputTextElements[2]).toHaveValue(userData.email);
 
                 //radio buttons
                 userEvent.click(inputRadioElements[1]);
                 expect(inputRadioElements[1]).toBeChecked();
-                
+
                 //checkbox
                 userEvent.click(inputCheckboxElement);
                 expect(inputCheckboxElement).toBeChecked();
-
-                const elementYears = screen.getByText(/Edad/i);
-                expect(elementYears).toBeInTheDocument();
-
 
                 elementButton = screen.getByRole('button');
                 expect(elementButton).toBeInTheDocument();
@@ -75,8 +80,6 @@ describe('Given Personal Data Form component', () => {
                 expect(handleAdd).toHaveBeenCalled();
                 expect(handleNextStep).toHaveBeenCalled();
             });
-
-         
         });
     });
 });

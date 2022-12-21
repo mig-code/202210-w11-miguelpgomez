@@ -11,7 +11,7 @@ export function FormPersonalData({
     const initialPersonalData: Partial<FormDataType> = {
         name: '',
         lastName: '',
-        birthDate: '1995-02-21',
+        birthDate: '',
         gender: '',
         email: '',
         newsLetter: false,
