@@ -25,9 +25,9 @@ export function Login() {
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         const userDataFromStorage = getStoreData(loginData.userName);
-       if(!userDataFromStorage[0]){
-              setWrongPassword(true);
-         }
+        if (!userDataFromStorage[0]) {
+            setWrongPassword(true);
+        }
         if (userDataFromStorage[0]) {
             if (userDataFromStorage[0].password === loginData.password) {
                 setIsUserValid(true);
