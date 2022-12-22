@@ -11,7 +11,7 @@ export function PersonalInfo({ formData }: { formData: FormDataType }) {
             </p>
             <p>
                 <span>Género:</span>
-                {formData.gender}
+                 {formData.gender}
             </p>
             <p>
                 <span>Fecha de nacimiento:</span> {formData.birthDate}
@@ -20,7 +20,7 @@ export function PersonalInfo({ formData }: { formData: FormDataType }) {
                 <span>Email:</span> {formData.email}
             </p>
             <p>
-                <span>Usuario</span> {formData.userName}
+                <span>Usuario:</span> {formData.userName}
             </p>
             <p>
                 <span>Tipo de Cuenta:</span> {formData.accountType}
