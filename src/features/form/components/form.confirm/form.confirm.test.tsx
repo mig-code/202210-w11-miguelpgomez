@@ -31,11 +31,10 @@ describe('Given Confirm Form component', () => {
             expect(elementHeader).toBeInTheDocument();
         });
         test(`Then component should be render with data`, () => {
-            const elementName = screen.getByText(/Nombre: Juan/i);
+            const elementName = screen.getByText(/Nombre:/i);
             expect(elementName).toBeInTheDocument();
-            const elementLastName = screen.getByText(/Apellido: Perez/i);
-            expect(elementLastName).toBeInTheDocument();
-            
+            const elementEmail = screen.getByText(/juanperez@gmail.com/i);
+            expect(elementEmail).toBeInTheDocument();
         });
     });
     describe('Check functionality of the buttons', () => {
