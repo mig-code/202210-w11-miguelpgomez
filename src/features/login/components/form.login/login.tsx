@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { PersonalInfo } from '../../../../core/components/personal.info/personal.info';
 import { getStoreData } from '../../../../services/storage';
 import { FormDataType } from '../../../form/types/form.data';
@@ -25,8 +25,10 @@ export function Login() {
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         const userDataFromStorage = getStoreData(loginData.userName);
-        console.log('userDataFromStorage', userDataFromStorage);
-        if (userDataFromStorage) {
+       if(!userDataFromStorage[0]){
+              setWrongPassword(true);
+         }
+        if (userDataFromStorage[0]) {
             if (userDataFromStorage[0].password === loginData.password) {
                 setIsUserValid(true);
                 setWrongPassword(false);
