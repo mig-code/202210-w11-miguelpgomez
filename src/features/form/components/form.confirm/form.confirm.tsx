@@ -21,15 +21,30 @@ export function FormComfirm({
         <>
             <h2>Confirma tus datos</h2>
             <div>
-                <p>Nombre: {formData.name}</p>
-                <p>Apellido: {formData.lastName}</p>
-                <p>Genero :{formData.gender}</p>
-                <p>Fecha de nacimiento: {formData.birthDate}</p>
-                <p>Email: {formData.email}</p>
-                <p>Usuario: {formData.userName}</p>
-                <p>Tipo de cuenta: {formData.accountType}</p>
+                <p>
+                    <span>Nombre:</span> {formData.name}
+                </p>
+                <p>
+                    <span>Apellido:</span> {formData.lastName}
+                </p>
+                <p>
+                    <span>Género:</span>
+                    {formData.gender}
+                </p>
+                <p>
+                    <span>Fecha de nacimiento:</span> {formData.birthDate}
+                </p>
+                <p>
+                    <span>Email:</span> {formData.email}
+                </p>
+                <p>
+                    <span>Usuario</span> {formData.userName}
+                </p>
+                <p>
+                    <span>Tipo de Cuenta:</span> {formData.accountType}
+                </p>
             </div>
-            <div className='buttons-container'>
+            <div className="buttons-container">
                 <button onClick={handleBack}>Atrás </button>
                 <Link to={'login'}>
                     <button onClick={handleConfirm}>Acceder</button>

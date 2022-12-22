@@ -40,7 +40,7 @@ export function Form() {
 
     return (
         <>
-            <h2>Registro en la aplicación</h2>
+            <h2 className="form-header">Registro en la aplicación</h2>
             {formStep === 0 && (
                 <FormPersonalData
                     handleAdd={handleAddFormData}
