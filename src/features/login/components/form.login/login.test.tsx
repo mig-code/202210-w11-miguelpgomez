@@ -1,9 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Login } from './login';
 import userEvent from '@testing-library/user-event';
 import { loginDataMock } from '../../mocks/login.data.mocks';
-import { fullFormDataMock } from '../../../form/mocks/form.data.mocks';
 
 describe('Given Login Page component', () => {
     beforeEach(() => {
@@ -35,7 +34,7 @@ describe('Given Login Page component', () => {
                 elementButton = screen.getByRole('button');
             });
 
-            test('User writes correct password', () => {
+            test('Not using LocalStorage', () => {
                 userEvent.type(inputUserElement, userData.userName as string);
                 expect(inputUserElement).toHaveValue(userData.userName);
                 userEvent.type(
@@ -43,7 +42,11 @@ describe('Given Login Page component', () => {
                     userData.password as string
                 );
                 expect(passwordInputElement).toHaveValue(userData.password);
-               
+                fireEvent.click(elementButton);
+                const invalidPasswordElement = screen.getByText(
+                    'Contraseña incorrecta'
+                );
+                expect(invalidPasswordElement).toBeInTheDocument();
             });
         });
     });
