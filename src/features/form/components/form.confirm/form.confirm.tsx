@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PersonalInfo } from '../../../../core/components/personal.info/personal.info';
 import { FormDataType } from '../../types/form.data';
 
 export function FormComfirm({
@@ -20,16 +21,8 @@ export function FormComfirm({
     return (
         <>
             <h2>Confirma tus datos</h2>
-            <div>
-                <p>Nombre: {formData.name}</p>
-                <p>Apellido: {formData.lastName}</p>
-                <p>Genero :{formData.gender}</p>
-                <p>Fecha de nacimiento: {formData.birthDate}</p>
-                <p>Email: {formData.email}</p>
-                <p>Usuario: {formData.userName}</p>
-                <p>Tipo de cuenta: {formData.accountType}</p>
-            </div>
-            <div className='buttons-container'>
+            <PersonalInfo formData={formData} ></PersonalInfo>
+            <div className="buttons-container">
                 <button onClick={handleBack}>Atrás </button>
                 <Link to={'login'}>
                     <button onClick={handleConfirm}>Acceder</button>

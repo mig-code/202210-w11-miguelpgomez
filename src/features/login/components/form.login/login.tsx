@@ -1,6 +1,9 @@
 import { SyntheticEvent, useState } from 'react';
+import { PersonalInfo } from '../../../../core/components/personal.info/personal.info';
 import { getStoreData } from '../../../../services/storage';
+import { FormDataType } from '../../../form/types/form.data';
 import { LoginDataType } from '../../types/login.data';
+
 export function Login() {
     const initialLoginData: LoginDataType = {
         userName: '',
@@ -9,6 +12,7 @@ export function Login() {
     const [loginData, setLoginData] = useState(initialLoginData);
     const [isUserValid, setIsUserValid] = useState(false);
     const [wrongPassword, setWrongPassword] = useState(false);
+    const [userData, setUserData] = useState({} as FormDataType);
     const handleInput = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
 
@@ -21,11 +25,14 @@ export function Login() {
     const handleSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
         const userDataFromStorage = getStoreData(loginData.userName);
-
-        if (userDataFromStorage) {
+        if (!userDataFromStorage[0]) {
+            setWrongPassword(true);
+        }
+        if (userDataFromStorage[0]) {
             if (userDataFromStorage[0].password === loginData.password) {
                 setIsUserValid(true);
                 setWrongPassword(false);
+                setUserData(userDataFromStorage[0] as FormDataType);
             } else {
                 setWrongPassword(true);
             }
@@ -67,7 +74,10 @@ export function Login() {
                     </div>
                 </form>
             ) : (
-                <div>Has accedido correctamente</div>
+                <>
+                    <div>Has accedido correctamente</div>
+                    <PersonalInfo formData={userData}></PersonalInfo>
+                </>
             )}
             {wrongPassword && <div>Contraseña incorrecta</div>}
         </div>

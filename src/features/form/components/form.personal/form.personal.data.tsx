@@ -82,7 +82,6 @@ export function FormPersonalData({
             <h2>Datos personales </h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    {/* <label htmlFor="name">Nombre</label> */}
                     <input
                         type="text"
                         name="name"
@@ -93,7 +92,6 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    {/* <label htmlFor="lastName">Apellido</label> */}
                     <input
                         type="text"
                         name="lastName"
@@ -105,7 +103,7 @@ export function FormPersonalData({
                 </div>
                 <div>
                     <label htmlFor="birthDate">Fecha de nacimiento</label>
-                    <p> {userAge? `Edad: ${userAge} años`:""}</p>
+                    <p> {userAge ? `Edad: ${userAge} años` : ''}</p>
                     <input
                         type="date"
                         name="birthDate"
@@ -117,7 +115,6 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <label htmlFor="male">Hombre</label>
                     <input
                         type="radio"
                         id="male"
@@ -126,7 +123,8 @@ export function FormPersonalData({
                         checked={personalData.gender === 'hombre'}
                         onChange={handleInput}
                     />
-                    <label htmlFor="female">Mujer</label>
+                    <label htmlFor="male">Hombre</label>
+
                     <input
                         type="radio"
                         id="female"
@@ -135,18 +133,19 @@ export function FormPersonalData({
                         checked={personalData.gender === 'mujer'}
                         onChange={handleInput}
                     />
-                    <label htmlFor="others">Otros / No contestar</label>
+                    <label htmlFor="female">Mujer</label>
+
                     <input
                         type="radio"
                         id="others"
                         name="gender"
-                        value="Otros / No contestar"
-                        checked={personalData.gender === 'Otros / No contestar'}
+                        value="No contestar"
+                        checked={personalData.gender === 'No contestar'}
                         onChange={handleInput}
                     />
+                    <label htmlFor="others">No contestar</label>
                 </div>
                 <div>
-                    {/* <label htmlFor="email">Email</label> */}
                     <input
                         type="email"
                         name="email"
@@ -157,9 +156,6 @@ export function FormPersonalData({
                     />
                 </div>
                 <div>
-                    <label htmlFor="newsLetter">
-                        Suscribirse al newsletter
-                    </label>
                     <input
                         type="checkbox"
                         name="newsLetter"
@@ -167,6 +163,9 @@ export function FormPersonalData({
                         defaultChecked={personalData.newsLetter}
                         onInput={handleInput}
                     />
+                    <label htmlFor="newsLetter">
+                        Suscribirse al newsletter
+                    </label>
                 </div>
                 <div>
                     {areFieldsValid && <button type="submit">Siguiente</button>}

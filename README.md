@@ -1,10 +1,10 @@
 # Challenge 11 Formulario React & TypeScript
 
-### Deploy https://202210-w11-miguelpgomez.netlify.app/
+#### Deploy https://202210-w11-miguelpgomez.netlify.app/
 
-### SonarCloud https://sonarcloud.io/project/overview?id=mig-code_202210-w11-miguelpgomez
+#### SonarCloud https://sonarcloud.io/project/overview?id=mig-code_202210-w11-miguelpgomez
 
-Crea con React un formulario de tres pasos.
+## Crea con React un formulario de tres pasos.
 
 En cada paso habrá un grupo de campos, y sólo se debe ver un paso a la vez.
 Pon en cada paso un botón para navegar al siguiente y otro para navegar al anterior (en el primer paso no debe verse el botón de anterior).
@@ -43,8 +43,7 @@ Si son correctos, se le debe mostrar una pantalla con todos los datos introducid
 #### Next Features
     Check password are equals
     Not save confirm password
-    Remove console.log
-    Improve styles
-    Improve validation messages
-    Not showing error password when user doesn' exist
+    
+ 
+ 
 
