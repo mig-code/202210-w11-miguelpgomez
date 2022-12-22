@@ -18,7 +18,6 @@ describe('Given Form Smart component', () => {
         let inputTextElements: Array<HTMLElement>;
         let inputDateElement: HTMLElement | null;
         let inputRadioElements: Array<HTMLElement>;
-        let inputCheckboxElement: HTMLElement;
         let elementButton: HTMLElement;
 
         beforeEach(() => {
@@ -36,7 +35,7 @@ describe('Given Form Smart component', () => {
             inputTextElements = screen.getAllByRole('textbox'); // <input>
             inputDateElement = screen.queryByLabelText(/Fecha de nacimiento/i); // <input>
             inputRadioElements = screen.getAllByRole('radio'); // <input>
-            inputCheckboxElement = screen.getByRole('checkbox'); // <input>
+       
 
             // COMPLETE PERSONAL FORM
             userEvent.type(inputTextElements[0], userData.name as string);
@@ -62,7 +61,7 @@ describe('Given Form Smart component', () => {
             inputTextElements = screen.getAllByRole('textbox'); // <input>
             inputDateElement = screen.queryByLabelText(/Fecha de nacimiento/i); // <input>
             inputRadioElements = screen.getAllByRole('radio'); // <input>
-            inputCheckboxElement = screen.getByRole('checkbox');
+          
             userEvent.type(inputTextElements[0], userData.name as string);
             userEvent.type(inputTextElements[1], userData.lastName as string);
             if (inputDateElement === null)
